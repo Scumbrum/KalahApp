@@ -1,0 +1,141 @@
+.input_window {
+    top:0;
+    left:0;
+    position: fixed;
+    z-index: 2;
+    height: 100% + 5vh;
+    width: 100%;
+    background-color: @black_color_transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.frame {
+    width: fit-content;
+    width: 70%;
+    background: @main_color;
+    border: .2em solid @third_color;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    &_name {
+        color: @second_color;
+        font-size: 3em;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        padding: 3%;
+        box-sizing: border-box;
+        
+    }
+
+    &_body {
+        width: 100%;
+        background-color: @second_color;
+        padding: 3% 4% 7%;
+        box-sizing: border-box;
+        & ul {
+            list-style: none;
+        }
+        & li {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 4vw;
+            color: @main_color;
+            margin-bottom: 3vh;
+        }
+        & h3 {
+            color: @main_color;
+            font-size: 3vw;
+        }
+    }
+
+    &_delete {
+        cursor: pointer;
+    }
+
+    &_input {
+        .base_input();
+        &-name {
+            .base_input();
+            background-color: @main_color;
+            color: @third_color;
+            width: 50%;
+        }
+
+        &-value {
+            .base_input();
+            background-color: @main_color;
+            color: @third_color;
+            width: 20%
+        }
+    }
+}
+
+.save_button {
+    .main_button();
+    margin-top: 8vh;
+}
+
+.requirement_button {
+    .lite_button();
+    display: block;
+    margin: 4vh auto 0;
+}
+
+.cancel_button:extend(.save_button) {
+
+}
+
+.controlls {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+}
+
+@media (max-width:600px) {
+    .input_window .frame {
+        width: 95%;
+        &_name {
+            flex-direction: column;
+            align-items: center;
+        }
+        &_input {
+            width: 90%;
+            &-name {
+                width: 98%;
+            }
+            &-value {
+                width: 98%;
+                margin-left: auto;
+            }
+        }
+        &_body {
+            & li {
+                border: 1vmin solid @third_color;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            & h3 {
+                font-size: 8vw;
+            }
+        }
+        &_delete {
+            grid-column: 1/3;
+            display: flex;
+            justify-content: center;
+            background-color: @main_color;
+            color: @second_color;
+            width: 100%;
+            font-size: 8vw;
+            margin-top: 2vh;
+        }
+    }
+    
+    .controlls {
+        width: 80%;
+    }
+}
