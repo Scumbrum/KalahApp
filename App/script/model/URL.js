@@ -1,1 +1,1 @@
-export default URL = "http://localhost:3003/"
+export default URL = "https://skillrate.herokuapp.com/"
